@@ -95,11 +95,13 @@ echo.
 echo   1. Descargar Contenido (Modo Normal)
 echo   2. Descargar Contenido (Modo Anonimo con Tor)
 echo   3. Actualizar yt-dlp a la ultima version
-echo   4. Salir
+echo   4. Invitame a una Cerveza
+echo   5. Salir
 echo.
 
-choice /C 1234 /M "Elige una opcion: "
-if %errorlevel%==4 goto :eof
+choice /C 12345 /M "Elige una opcion: "
+if %errorlevel%==5 goto :eof
+if %errorlevel%==4 goto beer_me
 if %errorlevel%==3 goto update_ytdlp
 if %errorlevel%==2 goto download_tor
 if %errorlevel%==1 goto download_normal
@@ -199,6 +201,19 @@ cls
 echo --- ACTUALIZANDO YT-DLP ---
 echo.
 "%INSTALL_DIR%yt-dlp.exe" -U
+goto end_task
+
+:beer_me
+cls
+echo.
+echo ============================================================================
+echo  "El que comparte su saber, no solo enciende una luz en la oscuridad de otro,
+echo   sino que tambien hace que su propia llama brille con mas intensidad."
+echo.
+echo  Gracias por considerar apoyar este proyecto. Tu gesto ayuda a mantenerlo vivo.
+echo ============================================================================
+echo Kashtag: #erickgm1983
+start https://www.paypal.me/eidosred
 goto end_task
 
 :end_task
